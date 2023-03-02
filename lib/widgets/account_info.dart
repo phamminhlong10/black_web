@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:the_black_web/model/account.dart';
 
 class AccountInfo extends StatelessWidget {
@@ -7,47 +7,42 @@ class AccountInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+    return Card(
+      child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-                user.id ?? ""),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(user.nickname ?? ""),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(user.email ?? ""),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20),
             child: Image.network(
-                height: 64,
+                height: 150,
+                fit: BoxFit.fitWidth,
                 user.images?.first ?? "https://i.imgur.com/lAncCJS.jpeg"),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(user.phone ?? ""),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(user.job ?? ""),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(user.location?.values.first ?? ""),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(user.dob ?? ""),
-          )
+          Text(user.nickname ?? ""),
+          Text(user.email ?? ""),
+          Text(user.phone ?? ""),
+          Text(user.location?.values.first ?? ""),
         ],
       ),
     );
   }
 }
+
+
+/*
+* Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+              user.id ?? ""),
+          Text(user.nickname ?? ""),
+          Text(user.email ?? ""),
+          Image.network(
+              height: 64,
+              user.images?.first ?? "https://i.imgur.com/lAncCJS.jpeg"),
+          Text(user.phone ?? ""),
+          Text(user.job ?? ""),
+          Text(user.location?.values.first ?? ""),
+          Text(user.dob ?? "")
+        ],
+      )
+*  */

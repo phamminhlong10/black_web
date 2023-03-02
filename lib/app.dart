@@ -11,7 +11,6 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
         useMaterial3: true,
         // primarySwatch: Colors.grey,
@@ -19,9 +18,8 @@ class App extends StatelessWidget {
         primaryColorLight: const Color(0xFF6d6d6d),
         primaryColorDark: const Color(0xFF1b1b1b),
       ),
-      home:  BlocProvider(
-          create: (context) => getIt<AppBloc>(),
-          child: SafeArea(child: HomePage())),
+      home: BlocProvider(
+          create: (context) => getIt<AppBloc>(), child: const HomePage()),
     );
   }
 }
